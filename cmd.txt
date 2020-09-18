@@ -1,0 +1,6 @@
+Rec
+
+sed '68!d' extracted | awk '{print $1}' | awk '{print $1}' | awk '{print $1}' | awk '/k|m/{p = /k/?1:2}{printf "%d\n", int($1) * 1024 ^ p}' 
+
+Sender
+sed '55!d' extracted | awk '{print $1}' | awk '{print $1}' | awk '{print $1}' | awk '/k|m/{p = /k/?1:2}{printf "%d\n", int($1) * 1024 ^ p}'
