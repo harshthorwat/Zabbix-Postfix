@@ -20,8 +20,8 @@
     cp userparameter_postfix.conf /etc/zabbix/zabbix_agentd.d/
 
     # run visudo as root
-    Defaults:zabbix !requiretty
-    zabbix ALL=(ALL) NOPASSWD: /usr/bin/zabbix-postfix-stats.sh
+    Defaults:root !requiretty
+    root ALL=(ALL) NOPASSWD: /usr/bin/zabbix-postfix-stats.sh
 
     systemctl restart zabbix-agent
 
@@ -31,10 +31,6 @@ Finally import template_app_zabbix.xml and attach it to your host
 Add this lines to the Crontab.
 
 sudo crontab -e
-
-*/1 * * * * /root/mnt_log >> /root/mnt_log.log
-
-*/5 * * * * /usr/bin/maillog.sh &> /dev/null
 
 0 0 * * * /usr/bin/rm /tmp/postfix_statsfile.dat /tmp/zabbix-postfix-offset.dat
 
